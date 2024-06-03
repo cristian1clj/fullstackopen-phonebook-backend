@@ -1,9 +1,11 @@
 const express = require('express')
 const morgan = require('morgan')
+const cors = require('cors')
 
 const app = express()
 
 app.use(express.json())
+app.use(cors())
 
 morgan.token('body', (req, res) => JSON.stringify(req.body))
 app.use(morgan((tokens, req, res) => {
@@ -86,9 +88,9 @@ app.post('/api/persons', (req, res) => {
     number: body.number,
     id: generateId()
   }
-
+  
   persons = persons.concat(newPerson)
-  res.json(persons)
+  res.json(newPerson)
 })
 
 app.delete('/api/persons/:id', (req, res) => {
