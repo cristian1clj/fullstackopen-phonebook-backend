@@ -103,6 +103,17 @@ app.delete('/api/persons/:id', (req, res, next) => {
     .catch(error => next(error))
 })
 
+app.get('/api/info', (req, res) => {
+  const dateRequest = new Date().toUTCString()
+  Person.countDocuments({})
+    .then(amount => {
+      res.send(`
+        <p>Phonebook has info for ${amount} people</p>
+        <p>${dateRequest}</p>
+      `)
+    })
+})
+
 app.use(unknownEndpoint)
 app.use(errorHandler)
 

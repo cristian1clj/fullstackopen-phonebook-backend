@@ -51,7 +51,7 @@ npm start
     <th>RESPONSE</th>
   </tr>
   <tr>
-    <td rowspan="4">Persons</td>
+    <td rowspan="5">Persons</td>
     <td style="background-color: #61affe; color: white">GET</td>
     <td>/api/persons</td>
     <td>Get all people info</td>
@@ -105,9 +105,25 @@ npm start
     +++++ or +++++<br>
     Status 400<br>
     { error: "content missing" }<br>
-    +++++ or +++++<br>
-    Status 409<br>
-    { error: "name must be unique" }
+    </td>
+  </tr>
+  <tr>
+    <td style="background-color: #f93e3e; color: white">UPDATE</td>
+    <td>/api/persons/:id</td>
+    <td>Update person by id</td>
+    <td>
+    {<br>
+    -- "id": int,<br>
+    -- "name": string,<br>
+    -- "number": string<br>
+    }<br>
+    </td>
+    <td>
+    {<br>
+    -- "id": int,<br>
+    -- "name": string,<br>
+    -- "number": string<br>
+    }<br>
     </td>
   </tr>
   <tr>
